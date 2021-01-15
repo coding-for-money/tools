@@ -1,0 +1,22 @@
+package ${servicePackage};
+
+import ${resultPackage}.Result;
+import ${modelPackage}.${upClassName}${modelPackageFileSuffix};
+
+${classTitle}
+public interface ${upClassName}Service {
+
+Result add${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result update${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result findDetail${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result list${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result list${upClassName}Page(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result count${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+
+Result delete${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception;
+}

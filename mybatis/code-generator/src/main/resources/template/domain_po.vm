@@ -1,0 +1,23 @@
+package ${poPackage};
+
+#foreach($ims in $importSets)
+    ${ims}
+#end
+import lombok.Data;
+import java.io.Serializable;
+import org.apache.ibatis.type.Alias;
+
+${classTitle}
+@Alias("${upClassName}${poPackageFileSuffix}")
+@Data
+public class ${upClassName}${poPackageFileSuffix} implements Serializable {
+
+private static final long serialVersionUID = ${SerialVersionUID}L;
+
+#foreach($field in $fields)
+    ${field}
+#end
+#*#foreach($method in $methods)
+    ${method}
+#end*#
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="mysql-connector-java-5.1.8.jar"/>
+
+  <context id="mysqlTables" targetRuntime="MyBatis3">
+
+    <commentGenerator>
+      <property name="suppressAllComments" value="true"/>
+      <property name="suppressDate" value="true"/>
+    </commentGenerator>
+
+    <javaClientGenerator targetPackage="com.oneplus.cs.dao"
+      targetProject="src/main/java" type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <javaModelGenerator targetPackage="com.oneplus.cs.model"
+      targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <jdbcConnection connectionURL="jdbc:mysql://xxx:3301/finance_voucher"
+      driverClass="com.mysql.jdbc.Driver" password="xxx"
+      userId="xxx">
+    </jdbcConnection>
+
+
+    <sqlMapGenerator targetPackage="sqlmap" targetProject="src/main/resources">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <table enableCountByExample="false" enableDeleteByExample="false"
+      enableSelectByExample="false" enableUpdateByExample="false"
+      tableName="cs_appraise"></table>
+
+  </context>
+</generatorConfiguration>

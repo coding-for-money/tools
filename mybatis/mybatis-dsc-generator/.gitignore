@@ -17,3 +17,37 @@ target
 /mybatis-dsc-generator.iml
 /release.properties
 /pom.xml.releaseBackup
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+logs/
+log/
+ibor_logs/
+*.doc
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+D:\tmp\cache\*
+D:/tmp/cache/YieldCurveCache.txt

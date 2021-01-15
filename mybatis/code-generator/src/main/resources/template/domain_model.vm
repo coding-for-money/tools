@@ -1,0 +1,21 @@
+package ${modelPackage};
+
+#foreach($ims in $importSets)
+    ${ims}
+#end
+import lombok.Data;
+import java.io.Serializable;
+
+${classTitle}
+@Data
+public class ${upClassName}${modelPackageFileSuffix} implements Serializable {
+
+private static final long serialVersionUID = ${SerialVersionUID}L;
+
+#foreach($field in $fields)
+    ${field}
+#end
+#*#foreach($method in $methods)
+    ${method}
+#end*#
+}

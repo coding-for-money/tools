@@ -1,0 +1,56 @@
+package ${serviceImplPackage};
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ${resultPackage}.Result;
+import ${servicePackage}.${upClassName}Service;
+import ${modelPackage}.${upClassName}${modelPackageFileSuffix};
+import ${mapperPackage}.${upClassName}${mapperPackageFileSuffix};
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
+
+${classTitle}
+@Service
+public class ${upClassName}ServiceImpl implements ${upClassName}Service {
+
+private final static Logger LOG = LoggerFactory.getLogger(${upClassName}ServiceImpl.class);
+
+@Resource
+private ${upClassName}${mapperPackageFileSuffix} ${lowClassName}${mapperPackageFileSuffix};
+
+@Override
+public Result add${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception {
+return null;
+}
+
+@Override
+public Result update${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception {
+return null;
+}
+
+@Override
+public Result findDetail${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+return null;
+}
+
+@Override
+public Result list${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+return null;
+}
+
+@Override
+public Result list${upClassName}Page(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+return null;
+}
+
+@Override
+public Result count${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+return null;
+}
+
+@Override
+public Result delete${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+return null;
+}
+
+}

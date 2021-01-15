@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${mapperPackage}.${upClassName}${mapperPackageFileSuffix}">
+
+  <resultMap id="BaseResultMap" type="${upClassName}${poPackageFileSuffix}">
+      #foreach($resultMapColumn in $resultMapColumns)
+        $resultMapColumn
+#end
+  </resultMap>
+
+  <sql id="Table_Name">
+      ${tableName}
+  </sql>
+
+  <sql id="Base_Column_List">
+      ${fields}
+  </sql>
+
+  <sql id="Query_Where_Column_List">
+    <trim prefix="WHERE" prefixOverrides="AND|OR">
+        #foreach($whereCondition in $whereConditions)
+            $whereCondition
+#end
+    </trim>
+  </sql>
+
+  <sql id="PrimaryKeyQuery_Where_Column_List">
+    WHERE ${columnPrimaryKey} = #{${normalPrimaryKey}}
+  </sql>
+
+  <sql id="Order_Column_List">
+
+  </sql>
+
+  <sql id="Query_Page_Limit">
+
+  </sql>
+
+  <insert id="insertSelective" parameterType="${upClassName}${poPackageFileSuffix}"
+          useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
+    INSERT INTO
+    <include refid="Table_Name"/>
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        #foreach($insertColsCondition in $insertColsConditions)
+            $insertColsCondition
+#end
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        #foreach($insertValueCondition in $insertValueConditions)
+            $insertValueCondition
+#end
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="${upClassName}${poPackageFileSuffix}">
+    UPDATE
+    <include refid="Table_Name"/>
+    <set>
+        #foreach($updateCondition in $updateConditions)
+            $updateCondition
+#end
+    </set>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </update>
+
+  <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
+          parameterType="${upClassName}${poPackageFileSuffix}">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </select>
+
+  <select id="queryList" resultMap="BaseResultMap"
+          parameterType="${upClassName}${poPackageFileSuffix}">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+    <include refid="Order_Column_List"/>
+  </select>
+
+  <select id="listPageSelective" resultMap="BaseResultMap"
+          parameterType="${upClassName}${poPackageFileSuffix}">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+    <include refid="Order_Column_List"/>
+    <include refid="Query_Page_Limit"/>
+  </select>
+
+  <select id="countSelective" resultType="java.lang.Integer"
+          parameterType="${upClassName}${poPackageFileSuffix}">
+    SELECT
+    COUNT(*)
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+  </select>
+
+  <delete id="deleteByPrimaryKeySelective" parameterType="${upClassName}${poPackageFileSuffix}">
+    DELETE FROM
+    <include refid="Table_Name"/>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </delete>
+
+</mapper>

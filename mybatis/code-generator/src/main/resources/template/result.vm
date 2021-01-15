@@ -1,0 +1,98 @@
+package ${resultPackage};
+
+import java.io.Serializable;
+
+${classTitle}
+public class Result implements Serializable {
+
+private static final long serialVersionUID = ${SerialVersionUID}L;
+
+/**
+* 成功  SUCCESS = "1"
+*/
+public static final String SUCCESS = "1";
+
+/**
+* 失败  FAIL = "0"
+*/
+public static final String FAIL = "0";
+
+/**
+* 返回标志  1:成功 0：失败
+*/
+private String ret;
+
+/**
+* 返回的错误码
+*/
+private String errCode;
+
+/**
+* 返回的错误消息
+*/
+private String errMsg;
+
+/**
+* 返回的数据
+*/
+private Object data;
+
+/**
+* 获取成功结果对象
+* @param data
+* @return 成功结果对象
+*/
+public static Result getSuccessResult(Object data){
+return new Result(SUCCESS,data);
+}
+
+public static boolean isSuccess(Result result){
+return result!=null && Result.SUCCESS.equals(result.getRet());
+}
+
+public Result(){
+super();
+}
+
+public Result(String ret,String errCode,String errMsg){
+this.ret = ret;
+this.errCode = errCode;
+this.errMsg = errMsg;
+}
+
+public Result(String ret,Object data){
+this.ret = ret;
+this.data = data;
+}
+
+public Result(String ret,String errCode,String errMsg,Object data){
+this(ret,errCode,errMsg);
+this.data = data;
+}
+
+public String getRet() {
+return ret;
+}
+public void setRet(String ret) {
+this.ret = ret;
+}
+public String getErrCode() {
+return errCode;
+}
+public void setErrCode(String errCode) {
+this.errCode = errCode;
+}
+public String getErrMsg() {
+return errMsg;
+}
+public void setErrMsg(String errMsg) {
+this.errMsg = errMsg;
+}
+public Object getData() {
+return data;
+}
+public void setData(Object data) {
+this.data = data;
+}
+
+}

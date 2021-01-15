@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean class="com.llj.mybatis.config.PackageConfigTypes" id="modelPackageConfigTypes">
+    <constructor-arg name="type" value="MODEL"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="poPackage"/>
+          <property name="targetDir" value="/po"/>
+          <property name="fileNameSuffix" value="PO.java"/>
+          <property name="template" value="domain_po.vm"/>
+        </bean>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="modelPackage"/>
+          <property name="targetDir" value="/model"/>
+          <property name="fileNameSuffix" value="Model.java"/>
+          <property name="template" value="domain_model.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+  <bean class="com.llj.mybatis.config.PackageConfigTypes" id="mapperPackageConfigTypes">
+    <constructor-arg name="type" value="MAPPER"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="targetDir" value="/mappers"/>
+          <property name="fileNameSuffix" value="Mapper.xml"/>
+          <property name="template" value="dao_sqlMapper.vm"/>
+        </bean>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="mapperPackage"/>
+          <property name="targetDir" value="/dao"/>
+          <property name="fileNameSuffix" value="DAO.java"/>
+          <property name="template" value="dao_mapper.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+  <bean class="com.llj.mybatis.config.PackageConfigTypes" id="mapperConfigPackageConfigTypes">
+    <constructor-arg name="type" value="MAPPER_CONFIG"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="targetDir" value="/mappers"/>
+          <property name="fileNameSuffix" value="mybatis-config.xml"/>
+          <property name="template" value="mybatis-config.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+  <bean class="com.llj.mybatis.config.PackageConfigTypes" id="resultPackageConfigTypes">
+    <constructor-arg name="type" value="RESULT"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="resultPackage"/>
+          <property name="targetDir" value="/service/module"/>
+          <property name="fileNameSuffix" value="Result.java"/>
+          <property name="template" value="result.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+  <bean class="com.llj.mybatis.config.PackageConfigTypes" id="servicePackageConfigTypes">
+    <constructor-arg name="type" value="SERVICE"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="servicePackage"/>
+          <property name="targetDir" value="/service"/>
+          <property name="fileNameSuffix" value="Service.java"/>
+          <property name="template" value="service.vm"/>
+        </bean>
+        <bean class="com.llj.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="serviceImplPackage"/>
+          <property name="targetDir" value="/service/impl"/>
+          <property name="fileNameSuffix" value="ServiceImpl.java"/>
+          <property name="template" value="service_impl.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+  <bean class="com.llj.mybatis.generator.impl.ModelGeneratorImpl" id="modelGenerator">
+    <property name="packageConfigTypes" ref="modelPackageConfigTypes"/>
+  </bean>
+  <bean class="com.llj.mybatis.generator.impl.MapperGeneratorImpl" id="mapperGenerator">
+    <property name="packageConfigTypes" ref="mapperPackageConfigTypes"/>
+  </bean>
+  <bean class="com.llj.mybatis.generator.impl.MapperConfigGeneratorImpl" id="mapperConfigGenerator">
+    <property name="packageConfigTypes" ref="mapperConfigPackageConfigTypes"/>
+  </bean>
+  <bean class="com.llj.mybatis.generator.impl.ResultGeneratorImpl" id="resultGenerator">
+    <property name="packageConfigTypes" ref="resultPackageConfigTypes"/>
+  </bean>
+  <bean class="com.llj.mybatis.generator.impl.ServiceGeneratorImpl" id="serviceGenerator">
+    <property name="packageConfigTypes" ref="servicePackageConfigTypes"/>
+  </bean>
+  <bean class="com.llj.mybatis.generator.base.GeneratorFactoryImpl" id="generatorFactory">
+    <property name="generatorSet">
+      <set>
+        <bean parent="modelGenerator"/>
+        <bean parent="mapperGenerator"/>
+        <bean parent="mapperConfigGenerator"/>
+        <bean parent="resultGenerator"/>
+        <bean parent="serviceGenerator"/>
+      </set>
+    </property>
+  </bean>
+</beans>

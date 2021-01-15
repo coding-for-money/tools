@@ -1,0 +1,84 @@
+# Compiled source # 
+################### 
+*.com 
+*.class 
+*.dll 
+*.exe 
+*.o 
+*.so 
+
+# Packages # 
+############ 
+# it's better to unpack these files and commit the raw source 
+# git has its own built in compression methods 
+*.7z 
+*.dmg 
+*.gz 
+*.iso 
+*.jar 
+*.rar 
+*.tar 
+*.zip 
+
+# Logs and databases # 
+###################### 
+*.log 
+*.sqlite 
+
+# OS generated files # 
+###################### 
+.DS_Store* 
+ehthumbs.db 
+Icon? 
+Thumbs.db 
+work
+.mvnclasspath
+.tomcatplugin
+.#webclasspath
+.project
+rebel.xml
+target
+.settings
+.classpath
+.externalToolBuilders
+*.iml
+.idea
+.idea/
+*.springBeans
+*.log
+/logs
+
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+logs/
+log/
+ibor_logs/
+*.doc
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+D:\tmp\cache\*
+D:/tmp/cache/YieldCurveCache.txt

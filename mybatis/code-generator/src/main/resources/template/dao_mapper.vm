@@ -1,0 +1,26 @@
+package ${mapperPackage};
+
+import java.util.List;
+
+import ${poPackage}.${upClassName}${poPackageFileSuffix};
+import org.springframework.stereotype.Repository;
+
+${classTitle}
+@Repository
+public interface ${upClassName}${mapperPackageFileSuffix} {
+
+Integer insertSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+Integer updateByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+${upClassName}${poPackageFileSuffix} selectByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+List<${upClassName}${poPackageFileSuffix}> queryList(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+List<${upClassName}${poPackageFileSuffix}> listPageSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+Integer countSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+Integer deleteByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+}
