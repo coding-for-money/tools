@@ -14,9 +14,9 @@ public class FileUtil {
 
   public static void wirtToFile(String path, String fileName, StringBuffer content) {
     File dir = new File(path);
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
+    if (!dir.exists()) {
+      dir.mkdirs();
+    }
 
     String target = path + File.separator + fileName + ".java";
 
@@ -60,9 +60,9 @@ public class FileUtil {
 
   public static FileWriter getWriter(String path, String fileName) {
     File dir = new File(path);
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
+    if (!dir.exists()) {
+      dir.mkdirs();
+    }
 
     String target = path + File.separator + fileName + ".java";
 

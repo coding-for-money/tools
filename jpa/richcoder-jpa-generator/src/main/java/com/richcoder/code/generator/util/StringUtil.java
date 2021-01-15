@@ -36,9 +36,9 @@ public class StringUtil {
         // 当前字符为下划线时，将指针后移一位，
         // 将紧随下划线后面一个字符转成大写并存放
         i++;
-				if (i < fromArray.length) {
-					toArray[j++] = Character.toUpperCase(fromArray[i]);
-				}
+        if (i < fromArray.length) {
+          toArray[j++] = Character.toUpperCase(fromArray[i]);
+        }
       } else {
         toArray[j++] = fromArray[i];
       }

@@ -8,6 +8,9 @@ import java.util.Set;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * @author richcoder
+ */
 @Data
 @Builder
 public class GenerateConfig {

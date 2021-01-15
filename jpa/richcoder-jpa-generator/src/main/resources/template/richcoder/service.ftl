@@ -8,9 +8,10 @@ import ${config.dtoPackageName}.response.${tableInfo.classPackageName}.${tableIn
 import ${config.modelPackageName}.${tableInfo.className};
 
 /**
- * ${tableInfo.tableComment} service接口
- */
+* ${tableInfo.tableComment} service接口
+*/
 public interface ${tableInfo.className}Service extends BaseService<${tableInfo.className}>{
 
-    Page<${tableInfo.className}DTO> page(${tableInfo.className}PageableDTO dto);
-}
+Page
+<${tableInfo.className}DTO> page(${tableInfo.className}PageableDTO dto);
+  }

@@ -3,7 +3,7 @@ package ${packageName};
 import javax.persistence.*;
 
 <#list tableInfo.columnTypes as item>
-import ${item};
+  import ${item};
 </#list>
 
 import io.swagger.annotations.ApiModel;
@@ -16,24 +16,24 @@ import lombok.Data;
 @Table(name="${tableInfo.tableName}")
 public class ${tableInfo.className}{
 
-    <#list tableInfo.columnInfos as item>
+<#list tableInfo.columnInfos as item>
     <#if  item.field == tableInfo.primaryKey >
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+      @Id
+      @GeneratedValue(strategy=GenerationType.IDENTITY)
     </#if>
     <#if  item.attrShortType == "Date" >
-    @ApiModelProperty(value="${item.comment}", example = "2020-01-01 00:00:00")
+      @ApiModelProperty(value="${item.comment}", example = "2020-01-01 00:00:00")
     <#else>
-    @ApiModelProperty("${item.comment}")
+      @ApiModelProperty("${item.comment}")
     </#if>
-    @Column(name="${item.field}")
+  @Column(name="${item.field}")
     <#if  item.field == "id" || item.field ?ends_with("Id")>
-    private Long ${item.attrName};
+      private Long ${item.attrName};
     <#else>
-    private ${item.attrShortType} ${item.attrName};
+      private ${item.attrShortType} ${item.attrName};
     </#if>
 
-    </#list>
+</#list>
 <#--
     <#list list as item>
       

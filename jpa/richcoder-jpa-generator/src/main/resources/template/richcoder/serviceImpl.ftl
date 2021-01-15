@@ -20,26 +20,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ${tableInfo.tableComment} service接口实现类
- */
+* ${tableInfo.tableComment} service接口实现类
+*/
 @Service("${tableInfo.shortStartClassName}Service")
 public class ${tableInfo.className}ServiceImpl extends BaseServiceImpl<${tableInfo.className}> implements ${tableInfo.className}Service {
 
-     private static final Logger log = LoggerFactory.getLogger(${tableInfo.className}ServiceImpl.class);
+private static final Logger log = LoggerFactory.getLogger(${tableInfo.className}ServiceImpl.class);
 
-    @Resource(name="${tableInfo.shortStartClassName}Dao")
-    private ${tableInfo.className}Dao ${tableInfo.shortStartClassName}Dao;
+@Resource(name="${tableInfo.shortStartClassName}Dao")
+private ${tableInfo.className}Dao ${tableInfo.shortStartClassName}Dao;
 
-    @Override
-    protected BaseDao<${tableInfo.className}> getDao(){
-      return ${tableInfo.shortStartClassName}Dao;
-    }
-
-    @Override
-    public Page<${tableInfo.className}DTO> page(${tableInfo.className}PageableDTO dto) {
-        StringBuilder sb = new StringBuilder();
-        Map<String, Object> map = new HashMap<>();
-        sb.append("select <#list tableInfo.columnInfos as item>${item.field}<#if item_has_next>,</#if></#list> from ${tableInfo.tableName} ");
-        return ${tableInfo.shortStartClassName}Dao.nativeFindPage(sb.toString(), map, ${tableInfo.className}DTO.class, dto);
-    }
+@Override
+protected BaseDao<${tableInfo.className}> getDao(){
+return ${tableInfo.shortStartClassName}Dao;
 }
+
+@Override
+public Page
+<${tableInfo.className}DTO> page(${tableInfo.className}PageableDTO dto) {
+  StringBuilder sb = new StringBuilder();
+  Map
+  <String
+  , Object> map = new HashMap<>();
+  sb.append("select <#list tableInfo.columnInfos as item>${item.field}<#if item_has_next>,</#if></#list>
+  from ${tableInfo.tableName} ");
+  return ${tableInfo.shortStartClassName}Dao.nativeFindPage(sb.toString(),
+  map, ${tableInfo.className}DTO.class, dto);
+  }
+  }

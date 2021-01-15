@@ -1,4 +1,8 @@
 # springJpaGenerator
+**background**
+采用spring jpa 作为持久层dao框架时的代码生成工具。
+
+
 原理：
 freemarker.template 模板生成
 
@@ -23,3 +27,4 @@ resouces/template.richcoder
 目前支持生成swagger,lombok
 
 生成模块包含：controller,dao,feign,service
+

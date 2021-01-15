@@ -7,12 +7,11 @@ import java.util.Set;
 
 public class TableInfo {
 
+  private final String classPackageName;
   private String tableName;
   private String tableComment;
-
   private String className;
   private String shortStartClassName;
-  private final String classPackageName;
   private String primaryKey;
 
   private List<ColumnInfo> columnInfos;
